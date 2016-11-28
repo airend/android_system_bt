@@ -1687,7 +1687,7 @@ BOOLEAN bta_gattc_process_srvc_chg_ind(UINT16 conn_id,
 
     const tBTA_GATTC_CHARACTERISTIC *p_char = bta_gattc_get_characteristic_srcb(p_srcb, p_notify->handle);
     if (p_char && bta_gattc_uuid_compare(&p_char->service->uuid, &gattp_uuid, TRUE) &&
-        bta_gattc_uuid_compare(&p_char->uuid, &srvc_chg_uuid, TRUE))
+        bta_gattc_uuid_compare((const tBT_UUID*)(void*)&p_char->uuid, &srvc_chg_uuid, TRUE))
     {
         if (att_value->len != BTA_GATTC_SERVICE_CHANGED_LEN) {
             APPL_TRACE_ERROR("%s: received malformed service changed indication, skipping", __func__);
