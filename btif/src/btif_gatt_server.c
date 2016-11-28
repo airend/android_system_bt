@@ -498,7 +498,7 @@ static void btgatts_handle_event(uint16_t event, char* p_param)
         case BTIF_GATTS_SEND_RESPONSE:
         {
             tBTA_GATTS_RSP rsp_struct;
-            btgatt_response_t *p_rsp = &p_cb->response;
+            btgatt_response_t *p_rsp = (btgatt_response_t*)(void*)&p_cb->response;
             btif_to_bta_response(&rsp_struct, p_rsp);
 
             BTA_GATTS_SendRsp(p_cb->conn_id, p_cb->trans_id,

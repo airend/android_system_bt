@@ -1004,7 +1004,7 @@ void bta_gattc_search_service(tBTA_GATTC_CLCB *p_clcb, tBT_UUID *p_uuid)
          sn != list_end(p_clcb->p_srcb->p_srvc_cache); sn = list_next(sn)) {
         tBTA_GATTC_SERVICE *p_cache = list_node(sn);
 
-        if (!bta_gattc_uuid_compare(p_uuid, &p_cache->uuid, FALSE))
+        if (!bta_gattc_uuid_compare(p_uuid, (const tBT_UUID*)(void*)&p_cache->uuid, FALSE))
             continue;
 
 #if (defined BTA_GATT_DEBUG && BTA_GATT_DEBUG == TRUE)
