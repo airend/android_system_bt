@@ -42,6 +42,7 @@ bluetooth_CFLAGS += \
   -DLOG_NDEBUG=1
 
 bluetooth_CONLYFLAGS += -std=c99
+bluetooth_CONLYFLAGS += -Wno-address-of-packed-member
 bluetooth_CPPFLAGS :=
 
 include $(call all-subdir-makefiles)
