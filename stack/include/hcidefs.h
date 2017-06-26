@@ -3188,6 +3188,8 @@ typedef struct {
 #define HCI_LE_2M_PHY_SUPPORTED(x) (((x)[1] & 0x01))     // BIT 8 SET
 #define HCI_LE_CODED_PHY_SUPPORTED(x) (((x)[1] & 0x08))  // BIT 11 SET
 
+#define HCI_LE_SET_PRIVACY_MODE_SUPPORTED(x) ((x)[39] & 0x04)
+
 /* LE Advertising Extension related Procedurs */
 #define HCI_LE_EXTENDED_ADVERTISING_SUPPORTED(x) \
   (((x)[1] & 0x10))  // BIT 12 SET
